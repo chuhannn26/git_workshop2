@@ -51,6 +51,7 @@ nav {
 #home h1 {
     font-size: 75px;
     margin-bottom: 12px;
+    animation: candyFloat 3s ease-in-out infinite;
 }
 
 #home p {
@@ -165,7 +166,88 @@ nav {
     font-size: 22.5px;
     line-height: 2;
 }
+/* Bookshelf */
+#bookshelf {
+    padding: 80px;
+}
 
+#bookshelf h2 {
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+#bookshelf p {
+    margin-bottom: 20px;
+}
+
+.bookshelf-filter{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    background-color: #b5eaea;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: #b5eaea;
+}
+
+.bookshelf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #b5eaea;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: candyPop 0.5s ease-out;
+}
+.book-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.book-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.book-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    margin-top: 4px;
+}
+
+.book-card.expanded .book-detail {
+    max-height: 200px;
+}
+
+.toggle-card {
+    margin-top: 8px;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    background-color: #b5eaea;
+    cursor: pointer;
+}
+
+.book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+}
 /* Projects */
 
 #projects {
@@ -185,7 +267,7 @@ nav {
 .project-search input{
     flex: 1;
     background-color: white;
-    border: 1px soild gainsboro;
+    border: 1px solid gainsboro;
     border-radius: 10px;
     padding: 12px 18px;
     font-size: 16px;
@@ -359,6 +441,31 @@ nav {
         transform: scale(1.2);
         color:white;
     }
-
-/*1112*/
 }
+/*1112*/
+/*final project*/
+@keyframes candyFloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes candyPop {
+    0% {
+        transform: scale(0.96);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.02);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/*finalproject*/

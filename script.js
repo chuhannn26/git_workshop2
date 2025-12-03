@@ -85,7 +85,7 @@ function attachProjectClickListeners() {
 }
 // Typewriter effect
 const typewriterElement = document.querySelector(".typewriter");
-const texts = ["NYCU Software Development Club.", "Core System.", "Clustron.", "HPC.", "Commonground."];
+const texts = ["ENTJ", "Interested in playing League of Legends and reading detective novels.", "Currently learning web development."];
 let textIndex = 0;
 let isDeleting = false;
 
@@ -135,6 +135,39 @@ function typeWriter() {
     }, deletingSpeed);
     }
 }
+// bookshelf
+const filterButtons = document.querySelectorAll(".filter-btn");
+const bookCards = document.querySelectorAll(".book-card");
 
+filterButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+        const filter = btn.dataset.filter;
+        filterButtons.forEach(function(b){
+            b.classList.remove("active");
+        });
+        btn.classList.add("active");
+        bookCards.forEach(function(card){
+            const category = card.dataset.category;
+            if (filter === "all" || category === filter){
+                card.style.display = "block";
+            } else{
+                card.style.display = "none";
+            }
+        });
+    });
+});
+const toggleButtons = document.querySelectorAll(".toggle-card");
+
+toggleButtons.forEach(function(button){
+    button.addEventListener("click", function(){
+        const card = button.closest(".book-card");
+        card.classList.toggle("expanded");
+        if(card.classList.contains("expanded")){
+            button.textContent = "Less";
+        } else{
+            button.textContent = "More";
+        }
+    });
+});
 // Start the typewriter effect
 typeWriter();
